@@ -10,6 +10,7 @@ func main() {
 	names[2] = "water"
 	names[3] = "law"
 	fmt.Println(names[0], names[1], names[2], names[3])
+	fmt.Printf("%T\n", names)
 	fmt.Println()
 
 	// Inisialisasi array cara 2
