@@ -145,6 +145,9 @@ func main() {
 	log.Println("start")
 	start := time.Now()
 
+	//generate files without context
+	generateFiles()
+
 	//cancel context with timeout
 	/*
 		ctx, cancel := context.WithTimeout(context.Background(), timeoutDuration)
@@ -153,10 +156,12 @@ func main() {
 	*/
 
 	//cancel context without timeout (force cancel)
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	time.AfterFunc(timeoutDuration, cancel)
-	generateFilesWithContext(ctx)
+	/*
+		ctx, cancel := context.WithCancel(context.Background())
+		defer cancel()
+		time.AfterFunc(timeoutDuration, cancel)
+		generateFilesWithContext(ctx)
+	*/
 
 	duration := time.Since(start)
 	log.Println("done in", duration.Seconds(), "seconds")
